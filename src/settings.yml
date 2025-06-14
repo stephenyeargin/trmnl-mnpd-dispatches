@@ -12,7 +12,7 @@ custom_fields:
   name: About This Plugin
   field_type: author_bio
   description: Active dispatches for the Metro Nashville Police Department.
-  github_url: https://github.com/stephenyeargin/trmnl-dashboard
+  github_url: https://github.com/stephenyeargin/trmnl-mnpd-dispatches
   learn_more_url: https://www.nashville.gov/departments/police/online-resources/active-dispatches
   email_address: stephen@yearg.in
 name: Metro Nashville Police Dept. Active Dispatches
