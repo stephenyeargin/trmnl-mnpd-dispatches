@@ -1,37 +1,39 @@
-<div class="view">
-  <div class="layout layout--row layout--top">
-    <div class="column">
-      <table
-        class="table table--condensed"
-        id="dispatch-table"
-        style="width:100%">
-        <thead>
-          <tr>
-            <th>
-              <span class="label">Description</span>
-            </th>
-            <th style="width:20%">
-              <span class="label">Time</span>
-            </th>
-            <th>
-              <span class="label">Location</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="dispatch-tbody">
-          {% for row in features, limit: 6 %}
-          <tr>
-            <td><span class="description">{{ row.attributes.IncidentTypeName }}</span></td>
-            <td><span class="label label--small text--center">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
-            <td><span class="label label--small">{{ row.attributes.Location }}</span></td>
-          </tr>
-          {% else %}
-          <tr>
-            <td colspan="3"><span class="label label--large py--20">No active incidents</span></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="layout layout--row layout--top">
+  <table class="table table--condensed">
+    <thead>
+      <tr>
+        <th>
+          <span class="title title--small">Description</span>
+        </th>
+        <th style="width:20%">
+          <span class="title title--small">Time</span>
+        </th>
+        <th>
+          <span class="title title--small">Location</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="dispatch-tbody">
+      {% for row in features, limit: 6 %}
+      <tr>
+        <td><span class="description">{{ row.attributes.IncidentTypeName }}</span></td>
+        <td><span class="label label--small text--center">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
+        <td><span class="label label--small">{{ row.attributes.Location }}</span></td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="3"><span class="label label--large py--20">No active incidents</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="title_bar">
+  <img
+    class="image image-stroke"
+    src="https://raw.githubusercontent.com/stephenyeargin/trmnl-mnpd-dispatches/refs/heads/main/assets/mnpd.png"
+    width="28"
+    height="28">
+  <span class="title">MNPD Active Dispatches</span>
 </div>
