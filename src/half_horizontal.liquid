@@ -1,31 +1,35 @@
 <div class="layout layout--row layout--top">
-  <table class="table table--condensed" id="dispatch-table">
+  <table class="table table--condensed" data-table-limit="true">
     <thead>
       <tr>
         <th style="width:5%">
-          <span class="title title--small">&nbsp;</span></th>
+          <span class="title title--small lg:title--base">&nbsp;</span>
+        </th>
         <th>
-          <span class="title title--small">Description</span></th>
-        <th style="width:15%">
-          <span class="title title--small">Received</span></th>
+          <span class="title title--small lg:title--base">Description</span>
+        </th>
+        <th style="width:15%" class="text--center">
+          <span class="title title--small lg:title--base">Received</span></th>
         <th>
-          <span class="title title--small">Location</span></th>
+          <span class="title title--small lg:title--base">Location</span>
+        </th>
         <th>
-          <span class="title title--small">Zone</span></th>
+          <span class="title title--small lg:title--base">Zone</span>
+        </th>
       </tr>
     </thead>
-    <tbody id="dispatch-tbody">
-      {% for row in features, limit: 6 %}
+    <tbody>
+      {% for row in features %}
       <tr>
-        <td><span class="label label--small">{{ row.attributes.IncidentTypeCode }}</span></td>
-        <td><span class="description">{{ row.attributes.IncidentTypeName }}</span></td>
-        <td><span class="label label--small text--center">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
-        <td><span class="label label--small">{{ row.attributes.Location }}</span></td>
-        <td><span class="label label--small">{{ row.attributes.CityName }}</span></td>
+        <td><span class="description description--base lg:description--large">{{ row.attributes.IncidentTypeCode }}</span></td>
+        <td><span class="description description--base lg:description--large" data-clamp="1">{{ row.attributes.IncidentTypeName }}</span></td>
+        <td class="text--center"><span class="description--base lg:description--large">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
+        <td><span class="description description--base lg:description--large data-clamp="1"">{{ row.attributes.Location }}</span></td>
+        <td><span class="description description--base lg:description--large data-clamp="1"">{{ row.attributes.CityName }}</span></td>
       </tr>
       {% else %}
       <tr>
-        <td colspan="5"><span class="label label--large py--20">No active incidents</span></td>
+        <td colspan="5" class="title title--base lg:title--large py--40 text--center">No active incidents</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -39,4 +43,5 @@
     width="28"
     height="28">
   <span class="title">Metro Nashville Police Dept. Active Dispatches</span>
+  <span class="instance">Updated {{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%-I:%M %P %B %d, %Y' }}</span>
 </div>
