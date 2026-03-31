@@ -15,7 +15,7 @@
     <tbody>
       {% for row in features %}
       <tr>
-        <td><span class="description description--small lg:description--base" data-clamp="1">{{ row.attributes.IncidentTypeName }}</span></td>
+        <td><span class="description description--small lg:description--base" data-clamp="1" data-clamp-lg="2">{{ row.attributes.IncidentTypeName }}</span></td>
         <td class="text--center"><span class="description description--small lg:description--base">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
         <td><span class="description description--small lg:description--base">{{ row.attributes.CityName }}</span></td>
       </tr>
