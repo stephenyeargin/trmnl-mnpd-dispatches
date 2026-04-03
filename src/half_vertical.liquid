@@ -1,31 +1,33 @@
-<div class="layout layout--row layout--top">
-  <table class="table table--condensed" data-table-limit="true">
-    <thead>
-      <tr>
-        <th>
-          <span class="title title--small lg:title--base">Description</span>
-        </th>
-        <th style="width:15%" class="text--center">
-          <span class="title title--small lg:title--base">Time</span></th>
-        <th>
-          <span class="title title--small lg:title--base">Zone</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for row in features %}
-      <tr>
-        <td><span class="description description--small lg:description--base" data-clamp="1" data-clamp-lg="2">{{ row.attributes.IncidentTypeName }}</span></td>
-        <td class="text--center"><span class="description description--small lg:description--base">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
-        <td><span class="description description--small lg:description--base">{{ row.attributes.CityName }}</span></td>
-      </tr>
-      {% else %}
-      <tr>
-        <td colspan="5" class="title title--base lg:title--large py--40 text--center">No active incidents</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="layout layout--column layout--top">
+  <div class="column w--full">
+    <table class="table table--condensed" data-table-limit="true">
+      <thead>
+        <tr>
+          <th>
+            <span class="title title--small lg:title--base">Description</span>
+          </th>
+          <th style="width:15%" class="text--center">
+            <span class="title title--small lg:title--base">Time</span></th>
+          <th>
+            <span class="title title--small lg:title--base">Zone</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in features %}
+        <tr>
+          <td><span class="description description--small lg:description--base" data-clamp="1">{{ row.attributes.IncidentTypeName }}</span></td>
+          <td class="text--center"><span class="description description--small lg:description--base">{{ row.attributes.CallReceivedTime | divided_by: 1000 | date: "%s" | plus: trmnl.user.utc_offset | date: '%l:%M %p' }}</span></td>
+          <td><span class="description description--small lg:description--base">{{ row.attributes.CityName }}</span></td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="5" class="title title--base lg:title--large py--40 text--center">No active incidents</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="title_bar">
