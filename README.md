@@ -1,6 +1,6 @@
 # Metro Nashville Police Dept. Active Dispatches
 
-[![Build](https://github.com/stephenyeargin/trmnl-mnpd-dispatches/actions/workflows/build.yml/badge.svg)](https://github.com/stephenyeargin/trmnl-mnpd-dispatches/actions/workflows/build.yml)
+[![Build](https://github.com/stephenyeargin/trmnl-mnpd-dispatches/actions/workflows/build.yml/badge.svg)](https://github.com/stephenyeargin/trmnl-mnpd-dispatches/actions/workflows/build.yml) [![TRMNL Recipe Connections](https://trmnl-badges.gohk.xyz/badge/connections?recipe=90541)](https://trmnl.com/recipes/90541)
 
 ![promo](assets/promo.png)
 
