@@ -20,5 +20,5 @@ custom_fields:
   learn_more_url: https://www.nashville.gov/departments/police/online-resources/active-dispatches
   email_address: stephen@yearg.in
 name: Metro Nashville Police Dept. Active Dispatches
-description: Live Metro Nashville Police active dispatch calls
+description: Live emergency call feed
 refresh_interval: 15
